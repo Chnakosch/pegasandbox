@@ -44,7 +44,9 @@ function handleEmbedReady() {
 let elEmbedding = document.getElementById("theEmbed");
 
 // Set starting fields, load the web embed
-elEmbedding.startingFields=`{"Email":"${PegaEmail}"}`;
+if (typeof PegaEmail !== 'undefined') {
+  elEmbedding.startingFields=`{"Email":"${PegaEmail}"}`;
+}
 elEmbedding.load();
  
 // Add the listener for the embed ready event
