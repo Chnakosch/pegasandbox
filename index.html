@@ -27,7 +27,7 @@ function handleEmbedReady() {
   let elEmbedding = document.getElementById("theEmbed");
 
   if (typeof PegaEmail !== 'undefined') {
-    elEmbedding.setEmbedData(".Email","test@test.test");
+    elEmbedding.setEmbedData(".Email",PegaEmail);
   }
  
   elEmbedding.addEventListener("embedprocessingend", function() {
