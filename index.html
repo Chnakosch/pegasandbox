@@ -11,6 +11,16 @@ function handleEmbedReady() {
   // Now that the embed is ready, add another listener for the embedprocessingend event
   let elEmbedding = document.getElementById("theEmbed");
   elEmbedding.addEventListener("embedprocessingend", function() {
+    // Set cookies
+    let PegaEmail = elEmbedding.getEmbedData(".Email");
+    let PegaFirstName = elEmbedding.getEmbedData(".Lead.pyFirstName");
+    let PegaLastName = elEmbedding.getEmbedData(".Lead.pyLastName");
+    let PegaSalutation = elEmbedding.getEmbedData(".Lead.Salutation");
+    document.cookie = "PegaEmail=" + PegaEmail;
+    document.cookie = "PegaFirstName=" + PegaFirstName;
+    document.cookie = "PegaLastName=" + PegaLastName;
+    document.cookie = "PegaSalutation=" + PegaSalutation;
+    
     // Redirect the user when the embedcloseconfirmview event is triggered
     window.location.href = "https://shop.haufe.de/opt-in";
   });
