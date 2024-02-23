@@ -12,7 +12,7 @@ function handleEmbedReady() {
   let elEmbedding = document.getElementById("theEmbed");
   elEmbedding.addEventListener("embedprocessingend", function() {
     // Redirect the user when the embedcloseconfirmview event is triggered
-    const RedirectURL = elEmbedding.getEmbedData(".RedirectURL")
+    const RedirectURL = elEmbedding.getEmbedData(".RedirectURL");
     window.location.href = RedirectURL;
   });
 }
