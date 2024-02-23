@@ -46,7 +46,7 @@ let elEmbedding = document.getElementById("theEmbed");
 
 // Set starting fields, load the web embed
 if (typeof PegaEmail !== 'undefined') {
-  elEmbedding.startingFields='{"Email":"test@test"}';
+  elEmbedding.setEmbedData(".Email","test@test.test");
 }
 elEmbedding.load();
  
