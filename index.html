@@ -11,8 +11,9 @@ function handleEmbedReady() {
   // Now that the embed is ready, add another listener for the embedprocessingend event
   let elEmbedding = document.getElementById("theEmbed");
   elEmbedding.addEventListener("embedprocessingend", function() {
-    // Redirect the user to www.google.de when the embedcloseconfirmview event is triggered    
-    window.location.href = elEmbedding.getEmbedData(".RedirectURL");
+    // Redirect the user when the embedcloseconfirmview event is triggered
+    const RedirectURL = elEmbedding.getEmbedData(".RedirectURL")
+    window.location.href = RedirectURL;
   });
 }
  
