@@ -3,7 +3,7 @@
 <body>
 
 <script src='https://c11n-prod-eu-central-1.constellation.cloud.pega.net/c11n/8.8.3-478/pega-embed.js'></script>
-<pega-embed id='theEmbed' action='createCase' caseTypeID='Haufe-LeadCapture-Work-WhitepaperDownload' casePage='assignment' deferLoad='true' appAlias='lead-capture' pegaServerUrl='https://chrhfv-hamark-dt1.pegacloud.net/prweb/' staticContentUrl='https://c11n-prod-eu-central-1.constellation.cloud.pega.net/c11n/8.8.3-478/' authService='pega' clientId='49987437234661733137' userIdentifier='myanon' password='UmVrbGFtMjQyNF8=' style='width:100%'></pega-embed>
+<pega-embed id='theEmbed' action='createCase' caseTypeID='Haufe-LeadCapture-Work-WhitepaperDownload' casePage='assignment' appAlias='lead-capture' pegaServerUrl='https://chrhfv-hamark-dt1.pegacloud.net/prweb/' staticContentUrl='https://c11n-prod-eu-central-1.constellation.cloud.pega.net/c11n/8.8.3-478/' authService='pega' clientId='49987437234661733137' userIdentifier='myanon' password='UmVrbGFtMjQyNF8=' style='width:100%'></pega-embed>
  
 <script>
 // Get cookies
@@ -25,6 +25,11 @@ for(let i = 0; i < ca.length; i++) {
 function handleEmbedReady() {
   // Now that the embed is ready, add another listener for the embedprocessingend event
   let elEmbedding = document.getElementById("theEmbed");
+
+  if (typeof PegaEmail !== 'undefined') {
+    elEmbedding.setEmbedData(".Email","test@test.test");
+  }
+ 
   elEmbedding.addEventListener("embedprocessingend", function() {
     // Set cookies
     let PegaEmail = elEmbedding.getEmbedData(".Email");
@@ -43,12 +48,6 @@ function handleEmbedReady() {
  
 // Get the embed element by its ID
 let elEmbedding = document.getElementById("theEmbed");
-
-// Set starting fields, load the web embed
-if (typeof PegaEmail !== 'undefined') {
-  elEmbedding.setEmbedData(".Email","test@test.test");
-}
-elEmbedding.load();
  
 // Add the listener for the embed ready event
 elEmbedding.addEventListener("embedready", handleEmbedReady);
