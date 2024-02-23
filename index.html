@@ -25,10 +25,6 @@ for(let i = 0; i < ca.length; i++) {
 function handleEmbedReady() {
   // Now that the embed is ready, add another listener for the embedprocessingend event
   let elEmbedding = document.getElementById("theEmbed");
-
-  if (typeof PegaEmail !== 'undefined') {
-    elEmbedding.setEmbedData(".Email",PegaEmail);
-  }
  
   elEmbedding.addEventListener("embedprocessingend", function() {
     // Set cookies
@@ -42,6 +38,12 @@ function handleEmbedReady() {
  
 // Get the embed element by its ID
 let elEmbedding = document.getElementById("theEmbed");
+
+elEmbedding.addEventListener("embedcaseopened", function() {
+  if (typeof PegaEmail !== 'undefined') {
+    elEmbedding.setEmbedData(".Email",PegaEmail);
+  }
+}
  
 // Add the listener for the embed ready event
 elEmbedding.addEventListener("embedready", handleEmbedReady);
