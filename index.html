@@ -7,6 +7,7 @@
  
 <script>
 // Get cookies
+let PegaEmail;
 let name = "PegaEmail=";
 let decodedCookie = decodeURIComponent(document.cookie);
 let ca = decodedCookie.split(';');
@@ -15,8 +16,8 @@ for(let i = 0; i < ca.length; i++) {
   while (c.charAt(0) == ' ') {
     c = c.substring(1);
   }
-  if (c.indexOf(name == 0)) {
-      let PegaEmail = c.substring(name.length, c.length);
+  if (c.indexOf(name) == 0) {
+      PegaEmail = c.substring(name.length, c.length);
       console.log("1: " + PegaEmail);
   }
 }
