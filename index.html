@@ -40,11 +40,11 @@ function handleEmbedReady() {
 // Get the embed element by its ID
 let elEmbedding = document.getElementById("theEmbed");
 
-elEmbedding.addEventListener("embedcaseopened", function()) {
+elEmbedding.addEventListener("embedcaseopened", function() {
   if (typeof PegaEmail !== 'undefined') {
     elEmbedding.setEmbedData(".Email",PegaEmail);
   }
-}
+});
  
 // Add the listener for the embed ready event
 elEmbedding.addEventListener("embedready", handleEmbedReady);
