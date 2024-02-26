@@ -1,18 +1,55 @@
-<h1>Hello!</h1>
+<!DOCTYPE html>
+<html>
+<body>
 
-<!-- ********************** Begin Pega content ********************** -->
-<script src ='https://chrhfv-hamark-dt1.pegacloud.net/prweb/PRAuth/TestAnonymous?pyActivity=pzIncludeMashupScripts'></script>
-<div data-pega-gadgetname ='PegaGadget' 
-data-pega-action ='createNewWork' 
-data-pega-action-param-classname ='Haufe-Marketing-Work-WhitepaperDownloadMashup' 
-data-pega-action-param-flowname ='' 
-data-pega-isretained ='false' 
-data-pega-isdeferloaded ='false' 
-data-pega-applicationname ='HaufeMarketing_DEV' 
-data-pega-threadname ='LeadCapturePOC' 
-data-pega-channelID ='MASHUPc076015c9a914765906601df31c46b1d' 
-data-pega-resizetype ='stretch' 
-data-pega-url ='https://chrhfv-hamark-dt1.pegacloud.net/prweb/PRAuth/TestAnonymous' 
-data-pega-action-param-parameters ='{"pzSkinName":"HaufeMarketing","pyMashupSkeletonName":"pyDefaultMashupSkeleton"}' ></div>
+<script src='https://c11n-prod-eu-central-1.constellation.cloud.pega.net/c11n/8.8.3-478/pega-embed.js'></script>
+<pega-embed id='theEmbed' action='createCase' caseTypeID='Haufe-LeadCapture-Work-WhitepaperDownload' casePage='assignment' appAlias='lead-capture' pegaServerUrl='https://chrhfv-hamark-dt1.pegacloud.net/prweb/' staticContentUrl='https://c11n-prod-eu-central-1.constellation.cloud.pega.net/c11n/8.8.3-478/' authService='pega' clientId='49987437234661733137' userIdentifier='myanon' password='UmVrbGFtMjQyNF8=' style='width:100%'></pega-embed>
+ 
+<script>
+// Get cookies
+let PegaEmail;
+let name = "PegaEmail=";
+let decodedCookie = decodeURIComponent(document.cookie);
+let ca = decodedCookie.split(';');
+for(let i = 0; i < ca.length; i++) {
+  let c = ca[i];
+  while (c.charAt(0) == ' ') {
+    c = c.substring(1);
+  }
+  if (c.indexOf(name) == 0) {
+      PegaEmail = c.substring(name.length, c.length);
+  }
+}
+ 
+// Function to handle the embed ready event
+function handleEmbedReady() {
+  // Now that the embed is ready, add another listener for the embedprocessingend event
+  let elEmbedding = document.getElementById("theEmbed");
+ 
+  elEmbedding.addEventListener("embedprocessingend", function() {
+    // Set cookies
+    let PegaEmail = elEmbedding.getEmbedData(".Email");
+    document.cookie = "PegaEmail=" + PegaEmail;
+    
+    // Redirect the user when the embedcloseconfirmview event is triggered
+    let RedirectURL = elEmbedding.getEmbedData(".RedirectURL");
+    window.location.href = RedirectURL;
+  });
+}
+ 
+// Get the embed element by its ID
+let elEmbedding = document.getElementById("theEmbed");
 
-<!-- ********************** End Pega content ********************** -->
+elEmbedding.addEventListener("embedcaseopened", function() {
+  if (typeof PegaEmail !== 'undefined') {
+    elEmbedding.setEmbedData(".Email",PegaEmail);
+  }
+});
+ 
+// Add the listener for the embed ready event
+elEmbedding.addEventListener("embedready", handleEmbedReady);
+</script>
+ 
+ 
+</body>
+</html>
