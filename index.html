@@ -25,12 +25,12 @@ for(let i = 0; i < ca.length; i++) {
 function handleEmbedReady() {
   // Now that the embed is ready, add another listener for the embedprocessingend event
   let elEmbedding = document.getElementById("theEmbed");
+
+  // Set cookies
+  let PegaID = elEmbedding.getEmbedData(".PegaIDCookie");
+  document.cookie = "PegaID=" + PegaID;
  
   elEmbedding.addEventListener("embedprocessingend", function() {
-    // Set cookies
-    let PegaID = elEmbedding.getEmbedData(".PegaIDCookie");
-    document.cookie = "PegaID=" + PegaID;
-    
     // Redirect the user when the embedcloseconfirmview event is triggered
     let RedirectURL = elEmbedding.getEmbedData(".RedirectURL");
     window.location.href = RedirectURL;
