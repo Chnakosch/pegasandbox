@@ -29,7 +29,7 @@ function handleEmbedReady() {
   elEmbedding.addEventListener("embedprocessingend", function() {
     // Set cookies
     let PegaID = elEmbedding.getEmbedData(".PegaIDCookie");
-    document.cookie = "PegaID=" + PegaEmail;
+    document.cookie = "PegaID=" + PegaID;
     
     // Redirect the user when the embedcloseconfirmview event is triggered
     let RedirectURL = elEmbedding.getEmbedData(".RedirectURL");
