@@ -3,7 +3,7 @@
 <body>
 
 <script src='https://c11n-prod-eu-central-1.constellation.cloud.pega.net/c11n/8.8.3-478/pega-embed.js'></script>
-<pega-embed id='theEmbed' deferLoad='true' action='createCase' caseTypeID='Haufe-LeadCapture-Work-WhitepaperDownload' casePage='assignment' appAlias='lead-capture' pegaServerUrl='https://chrhfv-hamark-dt1.pegacloud.net/prweb/' staticContentUrl='https://c11n-prod-eu-central-1.constellation.cloud.pega.net/c11n/8.8.3-478/' authService='pega' clientId='49987437234661733137' userIdentifier='myanon' password='UmVrbGFtMjQyNF8=' style='width:100%'></pega-embed>
+<pega-embed id='theEmbed' startingFields='{"PegaIDCookie":"%7Bpr%7DZjIXkX2K0mHNiv9y%2BMwJlGFgLtFcpWbv5Um7PEpoLoU%3D"}' action='createCase' caseTypeID='Haufe-LeadCapture-Work-WhitepaperDownload' casePage='assignment' appAlias='lead-capture' pegaServerUrl='https://chrhfv-hamark-dt1.pegacloud.net/prweb/' staticContentUrl='https://c11n-prod-eu-central-1.constellation.cloud.pega.net/c11n/8.8.3-478/' authService='pega' clientId='49987437234661733137' userIdentifier='myanon' password='UmVrbGFtMjQyNF8=' style='width:100%'></pega-embed>
  
 <script>
 // Get cookies
@@ -38,14 +38,9 @@ function handleEmbedReady() {
  
 // Get the embed element by its ID
 let elEmbedding = document.getElementById("theEmbed");
-
-elEmbedding.addEventListener("embedcaseopened", function() {
-  elEmbedding.setEmbedData("PegaIDCookie",PegaID);
-});
  
 // Add the listener for the embed ready event
 elEmbedding.addEventListener("embedready", handleEmbedReady);
-elEmbedding.load();
 </script>
  
  
