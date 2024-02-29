@@ -39,7 +39,9 @@ function handleEmbedReady() {
 // Get the embed element by its ID
 let elEmbedding = document.getElementById("theEmbed");
 
-elEmbedding.setEmbedData(".PegaIDCookie",PegaID);
+elEmbedding.addEventListener("embedcaseopened", function() {
+  elEmbedding.setEmbedData("PegaIDCookie",PegaID);
+});
  
 // Add the listener for the embed ready event
 elEmbedding.addEventListener("embedready", handleEmbedReady);
