@@ -699,6 +699,7 @@ div[id^="pgl_container_"]{padding-top:0;margin-top:-5px}
    // Get the embed element by its ID
    let elEmbedding = document.getElementById("theEmbed");
    elEmbedding.setAttribute('startingFields', PegaID);
+   elEmbedding.setAttribute('assignmentHeader', 'false');
    elEmbedding.load();
     
    // Add the listener for the embed ready event
